@@ -5,6 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import Link from "next/link";
+import Image from "next/image";
 
 const highlights = [
   "Experienced, caring medical professionals",
@@ -26,13 +27,14 @@ export default function Welcome() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] bg-gradient-to-br from-primary-100 to-teal-50 rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-300">
-                <svg className="w-24 h-24 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.75} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <p className="text-sm text-primary-400">Clinic facility image</p>
-              </div>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+              <Image
+                src="/clinic_image.jpg"
+                alt="Ofure Clinic & Maternity Home facility"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
             {/* Floating accent card */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100 max-w-[200px]">

@@ -97,19 +97,19 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-row gap-3 mb-12"
           >
             <Link
               href="/appointment"
-              className="inline-flex items-center gap-2 bg-white text-primary-700 hover:bg-primary-50 font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary-700 hover:bg-primary-50 font-semibold px-5 py-3 sm:px-7 sm:py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm sm:text-base whitespace-nowrap"
             >
-              Book Appointment <ArrowRight className="w-4 h-4" />
+              Book Appointment <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
             <a
               href={CLINIC.PHONE_HREF}
-              className="btn-outline"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-primary-700 font-semibold px-5 py-3 sm:px-6 rounded-full transition-all duration-300 text-sm sm:text-base whitespace-nowrap"
             >
-              <Phone className="w-4 h-4" /> Contact Us
+              <Phone className="w-4 h-4 shrink-0" /> Contact Us
             </a>
           </motion.div>
 
@@ -118,12 +118,16 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap gap-3"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3"
           >
-            {floatingCards.map((card) => (
+            {floatingCards.map((card, i) => (
               <div
                 key={card.title}
-                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-3"
+                className={`flex flex-col items-center text-center gap-2 sm:flex-row sm:text-left bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-3${
+                  floatingCards.length % 2 !== 0 && i === floatingCards.length - 1
+                    ? " col-span-2"
+                    : ""
+                }`}
               >
                 <div className={`w-9 h-9 ${card.color} rounded-xl flex items-center justify-center shrink-0`}>
                   <card.icon className="w-4 h-4 text-white" />

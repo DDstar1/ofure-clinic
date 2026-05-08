@@ -8,8 +8,7 @@ export const services: Service[] = [
     description:
       "Comprehensive pregnancy care from conception through delivery, including regular check-ups, ultrasounds, and health education to ensure a healthy pregnancy.",
     icon: "Baby",
-    image:
-      "https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/antenatal.jpg",
     features: [
       "Routine pregnancy monitoring",
       "Blood pressure & glucose testing",
@@ -25,8 +24,7 @@ export const services: Service[] = [
     description:
       "Expert care for mothers and newborns after delivery, supporting recovery, breastfeeding, and infant health in the critical weeks following birth.",
     icon: "Heart",
-    image:
-      "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/postpartum.jpg",
     features: [
       "Postpartum health checks",
       "Breastfeeding support",
@@ -42,8 +40,7 @@ export const services: Service[] = [
     description:
       "Personalised family planning services helping couples make informed decisions about contraception and reproductive health.",
     icon: "Users",
-    image:
-      "https://images.unsplash.com/photo-1491013516836-7db643ee5058?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/family-planning.jpg",
     features: [
       "Contraceptive counselling",
       "IUD insertion & removal",
@@ -59,8 +56,7 @@ export const services: Service[] = [
     description:
       "Holistic primary healthcare for all ages — from diagnosis and treatment of common illnesses to management of chronic conditions.",
     icon: "Stethoscope",
-    image:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=70",
+    image: "/clinic_image.jpg",
     features: [
       "Diagnosis & treatment",
       "Prescription & medication",
@@ -76,8 +72,7 @@ export const services: Service[] = [
     description:
       "Dedicated paediatric care covering routine wellness visits, growth monitoring, illness management, and developmental assessments.",
     icon: "SmilePlus",
-    image:
-      "https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/fever.jpg",
     features: [
       "Well-baby check-ups",
       "Growth & development tracking",
@@ -93,8 +88,7 @@ export const services: Service[] = [
     description:
       "Full vaccination services for children and adults, following Nigeria's National Programme on Immunization schedule and international guidelines.",
     icon: "ShieldCheck",
-    image:
-      "https://images.unsplash.com/photo-1632053001332-2b3a49e6aca9?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/immunization.jpg",
     features: [
       "Childhood vaccination schedule",
       "Travel vaccinations",
@@ -144,8 +138,7 @@ export const services: Service[] = [
     description:
       "Full-spectrum maternity care providing a safe, comfortable environment for labour, delivery, and immediate postpartum support.",
     icon: "HeartHandshake",
-    image:
-      "https://images.unsplash.com/photo-1584715742745-39abf20e2e6d?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/labour.jpg",
     features: [
       "Normal & assisted deliveries",
       "Labour ward monitoring",
@@ -161,8 +154,7 @@ export const services: Service[] = [
     description:
       "Comprehensive gynaecological services addressing every stage of a woman's life — from adolescence to menopause.",
     icon: "Ribbon",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=70",
+    image: "/blog/womens-health.jpg",
     features: [
       "Gynaecological examinations",
       "Cervical cancer screening",

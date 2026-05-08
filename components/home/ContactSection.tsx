@@ -47,16 +47,18 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {contactDetails.map((item) => (
-            <div key={item.title} className="card-base p-6">
+            <div key={item.title} className="card-base p-6 flex flex-col items-center text-center lg:items-start lg:text-left">
               <div className="w-11 h-11 bg-primary-50 rounded-xl flex items-center justify-center mb-4">
                 <item.icon className="w-5 h-5 text-primary-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-              {item.lines.map((line, i) => (
-                <p key={i} className="text-sm text-gray-600">{line}</p>
-              ))}
+              <div className="w-full min-w-0">
+                {item.lines.map((line, i) => (
+                  <p key={i} className="text-sm text-gray-600 break-all">{line}</p>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -80,7 +82,7 @@ export default function ContactSection() {
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/appointment" className="btn-primary">
+          <Link href="/appointment" className="btn-primary justify-center">
             Book an Appointment <ArrowRight className="w-4 h-4" />
           </Link>
           <a
@@ -91,7 +93,7 @@ export default function ContactSection() {
           >
             <MessageCircle className="w-4 h-4" /> WhatsApp Us
           </a>
-          <Link href="/contact" className="btn-secondary">
+          <Link href="/contact" className="btn-secondary justify-center">
             Full Contact Page
           </Link>
         </div>

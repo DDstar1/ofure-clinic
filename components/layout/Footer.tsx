@@ -43,9 +43,9 @@ export default function Footer() {
     <footer className="bg-gray-950 text-gray-300">
       {/* Main Footer */}
       <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600 to-teal-500 flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-lg">O</span>
@@ -109,7 +109,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h3 className="text-white font-semibold mb-5">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">

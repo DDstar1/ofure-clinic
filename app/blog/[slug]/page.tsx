@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock, ArrowLeft, Tag, User } from "lucide-react";
 import { blogPosts, getBlogPost } from "@/lib/blog-data";
 import { CLINIC } from "@/lib/constants";
@@ -95,18 +96,17 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Image placeholder */}
-      <div className="bg-gradient-to-br from-primary-50 to-teal-50 border-b border-gray-100">
-        <div className="container-custom max-w-4xl py-0">
-          <div className="h-64 md:h-96 flex items-center justify-center text-primary-200">
-            <div className="text-center">
-              <svg className="w-20 h-20 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.75} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <p className="text-sm text-primary-400">Featured image for: {post.title}</p>
-            </div>
-          </div>
-        </div>
+      {/* Featured image */}
+      <div className="relative h-64 md:h-[420px] border-b border-gray-100 overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
       </div>
 
       {/* Content */}
