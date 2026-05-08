@@ -2,19 +2,20 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, ArrowRight, MessageCircle } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
+import { CLINIC } from "@/lib/constants";
 
 const contactDetails = [
   {
     icon: Phone,
     title: "Phone",
-    lines: ["+234 000 000 0000", "Emergency Line: 24/7"],
-    href: "tel:+2340000000000",
+    lines: [CLINIC.PHONE_DISPLAY, "Emergency Line: 24/7"],
+    href: CLINIC.PHONE_HREF,
   },
   {
     icon: Mail,
     title: "Email",
-    lines: ["info@ofureclinic.com", "appointments@ofureclinic.com"],
-    href: "mailto:info@ofureclinic.com",
+    lines: [CLINIC.EMAIL, CLINIC.EMAIL_APPOINTMENTS],
+    href: `mailto:${CLINIC.EMAIL}`,
   },
   {
     icon: MapPin,
@@ -78,7 +79,7 @@ export default function ContactSection() {
             Book an Appointment <ArrowRight className="w-4 h-4" />
           </Link>
           <a
-            href="https://wa.me/2340000000000"
+            href={CLINIC.WHATSAPP_HREF}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-green-500/30"

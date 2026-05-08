@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Tag, User } from "lucide-react";
 import { blogPosts, getBlogPost } from "@/lib/blog-data";
+import { CLINIC } from "@/lib/constants";
 import { formatDate } from "@/lib/utils";
 import Badge from "@/components/ui/Badge";
 
@@ -175,7 +176,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
                 <h3 className="font-bold text-red-700 text-sm mb-2">Medical Emergency?</h3>
                 <p className="text-xs text-red-600 mb-3">Call our 24/7 emergency line immediately.</p>
-                <a href="tel:+2340000000000" className="flex items-center justify-center gap-2 bg-red-600 text-white font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-red-700 transition-colors">
+                <a href={CLINIC.PHONE_HREF} className="flex items-center justify-center gap-2 bg-red-600 text-white font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-red-700 transition-colors">
                   Call Now
                 </a>
               </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { CLINIC } from "@/lib/constants";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
@@ -36,7 +37,7 @@ const faqs = [
   {
     question: "How do I contact the clinic in an emergency?",
     answer:
-      "In a medical emergency, call our 24-hour emergency line immediately at +234 000 000 0000. You can also come directly to the clinic at any time. For obstetric emergencies, proceed straight to our maternity unit.",
+      `In a medical emergency, call our 24-hour emergency line immediately at ${CLINIC.PHONE_DISPLAY}. You can also come directly to the clinic at any time. For obstetric emergencies, proceed straight to our maternity unit.`,
   },
   {
     question: "Are laboratory results available on the same day?",

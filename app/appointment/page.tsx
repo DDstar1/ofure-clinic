@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Calendar, CheckCircle2, Phone, Clock, ArrowRight } from "lucide-react";
 import Badge from "@/components/ui/Badge";
+import { CLINIC } from "@/lib/constants";
 
 const serviceOptions = [
   "Antenatal Care",
@@ -101,7 +102,7 @@ export default function AppointmentPage() {
                       contact you shortly to confirm your booking.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <a href="tel:+2340000000000" className="btn-primary">
+                      <a href={CLINIC.PHONE_HREF} className="btn-primary">
                         <Phone className="w-4 h-4" /> Call Us
                       </a>
                       <button
@@ -142,7 +143,7 @@ export default function AppointmentPage() {
                             name="phone"
                             value={form.phone}
                             onChange={handleChange}
-                            placeholder="+234 000 000 0000"
+                            placeholder={CLINIC.PHONE_DISPLAY}
                             className={inputClass("phone")}
                           />
                           {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
@@ -301,7 +302,7 @@ export default function AppointmentPage() {
                 <p className="text-sm text-red-600 mb-4">
                   Do not fill a form — call us immediately on our 24/7 emergency line.
                 </p>
-                <a href="tel:+2340000000000" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-full transition-colors w-full justify-center">
+                <a href={CLINIC.PHONE_HREF} className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-full transition-colors w-full justify-center">
                   <Phone className="w-4 h-4" /> Call Now
                 </a>
               </div>

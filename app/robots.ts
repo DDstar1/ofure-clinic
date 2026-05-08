@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { CLINIC } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ofureclinic.com/sitemap.xml",
+    sitemap: CLINIC.SITEMAP_URL,
   };
 }

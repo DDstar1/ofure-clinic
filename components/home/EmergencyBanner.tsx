@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone, AlertTriangle } from "lucide-react";
+import { CLINIC } from "@/lib/constants";
 
 export default function EmergencyBanner() {
   return (
@@ -21,7 +22,7 @@ export default function EmergencyBanner() {
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <a
-              href="tel:+2340000000000"
+              href={CLINIC.PHONE_HREF}
               className="inline-flex items-center gap-2 bg-white text-red-600 hover:bg-red-50 font-bold px-6 py-2.5 rounded-full transition-colors shadow-lg"
             >
               <Phone className="w-4 h-4" />

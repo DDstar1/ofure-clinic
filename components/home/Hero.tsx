@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, ShieldCheck, Clock, Star } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import { CLINIC } from "@/lib/constants";
 
 const stats = [
   { value: 5000, suffix: "+", label: "Patients Served" },
@@ -105,7 +106,7 @@ export default function Hero() {
               Book Appointment <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:+2340000000000"
+              href={CLINIC.PHONE_HREF}
               className="btn-outline"
             >
               <Phone className="w-4 h-4" /> Contact Us

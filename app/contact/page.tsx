@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import { CLINIC } from "@/lib/constants";
 
 const hours = [
   { day: "Monday – Friday", time: "8:00 AM – 8:00 PM" },
@@ -61,8 +62,8 @@ export default function ContactPage() {
             <AlertTriangle className="w-5 h-5 shrink-0" />
             <p className="font-semibold">Medical Emergency? Call immediately — 24/7 line available.</p>
           </div>
-          <a href="tel:+2340000000000" className="bg-white text-red-600 font-bold px-5 py-2 rounded-full hover:bg-red-50 transition-colors flex items-center gap-2 shrink-0">
-            <Phone className="w-4 h-4" /> +234 000 000 0000
+          <a href={CLINIC.PHONE_HREF} className="bg-white text-red-600 font-bold px-5 py-2 rounded-full hover:bg-red-50 transition-colors flex items-center gap-2 shrink-0">
+            <Phone className="w-4 h-4" /> {CLINIC.PHONE_DISPLAY}
           </a>
         </div>
       </div>
@@ -104,7 +105,7 @@ export default function ContactPage() {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
-                        placeholder="+234 000 000 0000"
+                        placeholder={CLINIC.PHONE_DISPLAY}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-400 text-sm transition-colors"
                       />
                     </div>
@@ -172,9 +173,9 @@ export default function ContactPage() {
             {/* Contact info */}
             <div className="space-y-6">
               {[
-                { icon: Phone, title: "Phone", lines: ["+234 000 000 0000", "Emergency line available 24/7"], href: "tel:+2340000000000" },
-                { icon: MessageCircle, title: "WhatsApp", lines: ["Chat with us instantly", "Quick response during business hours"], href: "https://wa.me/2340000000000" },
-                { icon: Mail, title: "Email", lines: ["info@ofureclinic.com", "appointments@ofureclinic.com"], href: "mailto:info@ofureclinic.com" },
+                { icon: Phone, title: "Phone", lines: [CLINIC.PHONE_DISPLAY, "Emergency line available 24/7"], href: CLINIC.PHONE_HREF },
+                { icon: MessageCircle, title: "WhatsApp", lines: ["Chat with us instantly", "Quick response during business hours"], href: CLINIC.WHATSAPP_HREF },
+                { icon: Mail, title: "Email", lines: [CLINIC.EMAIL, CLINIC.EMAIL_APPOINTMENTS], href: `mailto:${CLINIC.EMAIL}` },
                 { icon: MapPin, title: "Address", lines: ["Ekpoma, Edo State", "Nigeria"], href: null },
               ].map((item) => (
                 <div key={item.title} className="card-base p-6 flex items-start gap-4">

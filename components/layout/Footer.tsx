@@ -10,6 +10,7 @@ import {
   Youtube,
   Heart,
 } from "lucide-react";
+import { CLINIC } from "@/lib/constants";
 
 const footerLinks = {
   quickLinks: [
@@ -120,19 +121,19 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary-400 shrink-0" />
                 <a
-                  href="tel:+2340000000000"
+                  href={CLINIC.PHONE_HREF}
                   className="text-sm text-gray-400 hover:text-primary-400 transition-colors"
                 >
-                  +234 000 000 0000
+                  {CLINIC.PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary-400 shrink-0" />
                 <a
-                  href="mailto:info@ofureclinic.com"
+                  href={`mailto:${CLINIC.EMAIL}`}
                   className="text-sm text-gray-400 hover:text-primary-400 transition-colors"
                 >
-                  info@ofureclinic.com
+                  {CLINIC.EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">

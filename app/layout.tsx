@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollToTop from "@/components/ScrollToTop";
+import { CLINIC } from "@/lib/constants";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://ofureclinic.com",
+    url: CLINIC.SITE_URL,
     siteName: "Ofure Clinic & Maternity Home",
     title: "Ofure Clinic & Maternity Home | Ekpoma, Edo State",
     description:

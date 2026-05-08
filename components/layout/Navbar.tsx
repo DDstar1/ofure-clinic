@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CLINIC } from "@/lib/constants";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -93,7 +94,7 @@ export default function Navbar() {
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+2340000000000"
+              href={CLINIC.PHONE_HREF}
               className={cn(
                 "hidden lg:flex items-center gap-2 text-sm font-medium transition-colors",
                 scrolled || !isHome
@@ -153,11 +154,11 @@ export default function Navbar() {
               ))}
               <div className="pt-3 border-t border-gray-100 mt-2 flex flex-col gap-2">
                 <a
-                  href="tel:+2340000000000"
+                  href={CLINIC.PHONE_HREF}
                   className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-gray-700"
                 >
                   <Phone className="w-4 h-4 text-primary-600" />
-                  Emergency: +234 000 000 0000
+                  Emergency: {CLINIC.PHONE_DISPLAY}
                 </a>
                 <Link href="/appointment" className="btn-primary justify-center">
                   Book Appointment

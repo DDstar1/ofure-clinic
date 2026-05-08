@@ -2,16 +2,16 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { CLINIC } from "@/lib/constants";
 
 export default function FloatingWhatsApp() {
-  const phoneNumber = "2340000000000";
   const message = encodeURIComponent(
     "Hello! I would like to enquire about your services at Ofure Clinic & Maternity Home."
   );
 
   return (
     <motion.a
-      href={`https://wa.me/${phoneNumber}?text=${message}`}
+      href={`${CLINIC.WHATSAPP_HREF}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
