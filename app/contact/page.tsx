@@ -219,12 +219,17 @@ export default function ContactPage() {
           </div>
 
           {/* Map */}
-          <div className="mt-12 rounded-3xl overflow-hidden border border-gray-200 h-72 bg-gradient-to-br from-primary-50 to-teal-50 flex items-center justify-center">
-            <div className="text-center text-gray-400">
-              <MapPin className="w-12 h-12 mx-auto mb-3 text-primary-300" />
-              <p className="font-medium text-gray-500">Google Maps — Ekpoma, Edo State, Nigeria</p>
-              <p className="text-sm mt-1 text-gray-400">Replace with your Google Maps embed</p>
-            </div>
+          <div className="mt-12 rounded-3xl overflow-hidden border border-gray-200 h-72">
+            <iframe
+              src={CLINIC.MAPS_EMBED_SRC}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ofure Clinic location map"
+            />
           </div>
         </div>
       </SectionWrapper>

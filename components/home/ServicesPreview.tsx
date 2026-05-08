@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Baby, Heart, Users, Stethoscope, SmilePlus, ShieldCheck,
@@ -9,22 +10,14 @@ import {
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
+import { services } from "@/lib/services-data";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Baby, Heart, Users, Stethoscope, SmilePlus, ShieldCheck,
   FlaskConical, ScanLine, HeartHandshake, Ribbon, Ambulance, ClipboardList,
 };
 
-const featuredServices = [
-  { icon: "Baby", title: "Antenatal Care", slug: "antenatal-care", color: "bg-pink-50 text-pink-600" },
-  { icon: "HeartHandshake", title: "Maternity Services", slug: "maternity-services", color: "bg-primary-50 text-primary-600" },
-  { icon: "SmilePlus", title: "Child Healthcare", slug: "child-healthcare", color: "bg-teal-50 text-teal-600" },
-  { icon: "Users", title: "Family Planning", slug: "family-planning", color: "bg-violet-50 text-violet-600" },
-  { icon: "FlaskConical", title: "Laboratory Services", slug: "laboratory-services", color: "bg-amber-50 text-amber-600" },
-  { icon: "ScanLine", title: "Ultrasound Scan", slug: "ultrasound-scan", color: "bg-indigo-50 text-indigo-600" },
-  { icon: "Ribbon", title: "Women's Health", slug: "womens-health", color: "bg-rose-50 text-rose-600" },
-  { icon: "Stethoscope", title: "General Consultation", slug: "general-consultation", color: "bg-emerald-50 text-emerald-600" },
-];
+const featured = services.slice(0, 8);
 
 export default function ServicesPreview() {
   return (
@@ -44,26 +37,42 @@ export default function ServicesPreview() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
-          {featuredServices.map((service, i) => {
+          {featured.map((service, i) => {
             const Icon = iconMap[service.icon];
             return (
               <motion.div
                 key={service.slug}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
                 <Link
                   href={`/services#${service.slug}`}
-                  className="card-base p-5 flex flex-col items-center text-center gap-3 hover:-translate-y-1 block"
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 bg-white"
                 >
-                  <div className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center`}>
-                    {Icon && <Icon className="w-6 h-6" />}
+                  {/* Image */}
+                  <div className="relative h-32 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                    {/* Icon badge */}
+                    <div className="absolute bottom-2 right-2 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-sm">
+                      {Icon && <Icon className="w-4 h-4 text-primary-600" />}
+                    </div>
                   </div>
-                  <p className="text-sm font-semibold text-gray-800">
-                    {service.title}
-                  </p>
+
+                  {/* Label */}
+                  <div className="px-3 py-3">
+                    <p className="text-sm font-semibold text-gray-800 leading-snug">
+                      {service.title}
+                    </p>
+                  </div>
                 </Link>
               </motion.div>
             );

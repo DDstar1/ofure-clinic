@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Baby, Heart, Users, Stethoscope, SmilePlus, ShieldCheck,
   FlaskConical, ScanLine, HeartHandshake, Ribbon, Ambulance, ClipboardList,
@@ -19,21 +20,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Baby, Heart, Users, Stethoscope, SmilePlus, ShieldCheck,
   FlaskConical, ScanLine, HeartHandshake, Ribbon, Ambulance, ClipboardList,
 };
-
-const colorMap = [
-  "bg-pink-50 text-pink-600",
-  "bg-primary-50 text-primary-600",
-  "bg-violet-50 text-violet-600",
-  "bg-emerald-50 text-emerald-600",
-  "bg-teal-50 text-teal-600",
-  "bg-blue-50 text-blue-600",
-  "bg-amber-50 text-amber-600",
-  "bg-indigo-50 text-indigo-600",
-  "bg-rose-50 text-rose-600",
-  "bg-fuchsia-50 text-fuchsia-600",
-  "bg-red-50 text-red-600",
-  "bg-cyan-50 text-cyan-600",
-];
 
 export default function ServicesPage() {
   return (
@@ -58,42 +44,60 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <SectionWrapper className="bg-white">
+      <SectionWrapper className="bg-gray-50">
         <div className="container-custom">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => {
+            {services.map((service) => {
               const Icon = iconMap[service.icon];
-              const colorClass = colorMap[i % colorMap.length];
               return (
                 <div
                   key={service.id}
                   id={service.slug}
-                  className="card-base p-7 flex flex-col hover:-translate-y-1"
+                  className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
                 >
-                  <div className={`w-12 h-12 ${colorClass} rounded-xl flex items-center justify-center mb-5`}>
-                    {Icon && <Icon className="w-6 h-6" />}
+                  {/* Image header */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    {/* Icon + title overlay */}
+                    <div className="absolute bottom-0 left-0 p-4 flex items-center gap-3">
+                      <div className="w-10 h-10 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                        {Icon && <Icon className="w-5 h-5 text-primary-600" />}
+                      </div>
+                      <h2 className="font-bold text-white text-lg leading-tight drop-shadow">
+                        {service.title}
+                      </h2>
+                    </div>
                   </div>
-                  <h2 className="font-bold text-gray-900 text-xl mb-3">
-                    {service.title}
-                  </h2>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2 text-sm text-gray-600">
-                        <CheckCircle2 className="w-4 h-4 text-teal-500 shrink-0" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/appointment"
-                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm group"
-                  >
-                    Book This Service
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+
+                  {/* Card body */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feat) => (
+                        <li key={feat} className="flex items-center gap-2 text-sm text-gray-600">
+                          <CheckCircle2 className="w-4 h-4 text-teal-500 shrink-0" />
+                          {feat}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/appointment"
+                      className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm group/link"
+                    >
+                      Book This Service
+                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               );
             })}

@@ -18,4 +18,11 @@ export const CLINIC = {
   SITEMAP_URL: "https://ofureclinic.com.ng/sitemap.xml",
 
   LOCATION: "Ekpoma, Edo State, Nigeria",
+
+  /**
+   * Replace the src value below with the embed URL from:
+   * Google Maps → Share → Embed a map → copy the src attribute
+   */
+  MAPS_EMBED_SRC:
+    "https://maps.google.com/maps?q=Ekpoma%2C+Edo+State%2C+Nigeria&output=embed&z=14",
 } as const;

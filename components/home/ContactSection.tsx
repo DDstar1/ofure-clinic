@@ -64,13 +64,18 @@ export default function ContactSection() {
         {/* Map placeholder */}
         <div
           id="map"
-          className="rounded-3xl overflow-hidden border border-gray-200 h-72 bg-gradient-to-br from-primary-50 to-teal-50 flex items-center justify-center mb-10"
+          className="rounded-3xl overflow-hidden border border-gray-200 h-72 mb-10"
         >
-          <div className="text-center text-gray-400">
-            <MapPin className="w-12 h-12 mx-auto mb-3 text-primary-300" />
-            <p className="font-medium text-gray-500">Google Maps Embed</p>
-            <p className="text-sm">Ekpoma, Edo State, Nigeria</p>
-          </div>
+          <iframe
+            src={CLINIC.MAPS_EMBED_SRC}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Ofure Clinic location map"
+          />
         </div>
 
         {/* CTA row */}
